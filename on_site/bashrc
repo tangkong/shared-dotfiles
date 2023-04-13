@@ -14,8 +14,9 @@ if [ -z "$dotfiles" ]; then
 fi
 
 # The following sets up your prompt to show at least the host
-export PS1='\[\e[0;31m\][\u@\h  \W]\$\[\e[m\] '
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+# Moved to bottom of file... gets overridden by history section
+# export PS1='\[\e[0;31m\][\u@\h  \W]\$\[\e[m\] '
+# export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 
 # Your default editor will be set to vim.
 #  * Having trouble using it? Try running `vimtutor`.
@@ -86,7 +87,6 @@ source /cds/group/pcds/setup/epicsenv-cur.sh
 # ********************
 # ** Tab completion **
 # ********************
-
 # Enable tab completion for common commands:
 [ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion
 # This includes things like ssh, git, and so on.
@@ -273,6 +273,9 @@ shopt -s checkwinsize
 # Automatically trim long paths in the prompt.
 PROMPT_DIRTRIM=2
 
+# setup custom prompt
+[ -f "$dotfiles/prompt" ] && source "$dotfiles/prompt"
+
 # Enable history expansion with space.
 # E.g. typing !!<space> will replace the !! with your last command
 bind Space:magic-space
@@ -294,7 +297,6 @@ export GITHUB_UPSTREAM="upstream"
 export GITHUB_ORIGIN="origin"
 export GITHUB_MASTER="master"
 
-
 # ***************
 # ** Now what? **
 # ***************
@@ -306,9 +308,19 @@ export GITHUB_MASTER="master"
 #
 # * Do you want to automatically use the latest conda environment?
 #
-#   [ -d /cds/group/pcds ] && source /cds/group/pcds/pyps/conda/pcds_conda
+[ -d /cds/group/pcds ] && source /cds/group/pcds/pyps/conda/pcds_conda
 #
 # * Do you want to set up a development area for Python code?
 #
 #   See the "Testing packages" sections for recommended workflows.
 #   https://confluence.slac.stanford.edu/display/PCDS/PCDS+Conda+Python+Environments
+
+# setup devrepos
+pythonpathmunge /cds/home/r/roberttk/devrepos/happi/
+for f in $HOME/devrepos/*; do
+  if [ -d "$f" ]; then
+    pythonpathmunge $f
+  fi
+done
+
+

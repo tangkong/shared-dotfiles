@@ -2,9 +2,9 @@
 
 [user]
     ; Set your name here
-    name =
+    name = tangkong
     ; Set your e-mail address here
-    email =
+    email = tangkongrobert@gmail.com
 
 [url "http://git.code.sf.net/"]
     insteadOf = git://git.code.sf.net/
@@ -20,7 +20,7 @@
 
 [color]
     ui = auto
-    diff = never
+    ;diff = never
 
 [core]
     editor = vim
@@ -34,7 +34,6 @@
 [pager]
     diff = less
     show = less
-    log = less
 
 [alias]
     ls = log --oneline --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset'
@@ -46,3 +45,21 @@
 
 [svn]
     authorsfile=/afs/slac/g/cd/swe/git/repos/package/epics/modules/authors.txt
+[credential "https://github.com"]
+	helper = 
+	helper = !/cds/group/pcds/pyps/conda/py39/envs/pcds-5.4.2/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/cds/group/pcds/pyps/conda/py39/envs/pcds-5.4.2/bin/gh auth git-credential
+[safe]
+	directory = /cds/group/pcds/pyps/apps/hutch-python/device_config
+	directory = /cds/group/pcds/pyps/apps/hutch-python/xcs/dev/pcdsdevices
+	directory = /reg/g/pcds/pyps/apps/hutch-python/device_config
+	directory = /cds/group/pcds/pyps/apps/hutch-python/xpp/dev/pcdsdevices
+	directory = /cds/group/pcds/pyps/apps/hutch-python/xpp/dev/hutch-python
+	directory = /reg/g/pcds/engineering_tools/engineering_tools
+	directory = /reg/g/pcds/epics-dev/cymel123/fms/pcdsdevices
+	directory = /cds/group/pcds/pyps/apps/hutch-python/tmo/dev/pcdsdevices
+	directory = /reg/g/pcds/epics-dev/tongju/pcdsdevices
+	directory = /cds/group/pcds/pyps/apps/hutch-python/tmo/dev/hutch-python
+	directory = *
