@@ -97,6 +97,12 @@ alias view='vim -R'
 alias cagetenum='caget -d 31'
 alias cagetstring='caget -S'
 
+
+# ************
+# ** Git    **
+# ************
+alias gitlogtree='git log --graph --decorate --pretty=oneline --abbrev-commit --all --name-status'
+
 # ****************
 # ** What now?  **
 # ****************
