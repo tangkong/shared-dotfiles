@@ -79,7 +79,11 @@ _prompt_env(){
       echo "(${purple}${ENVNAME}${normal})"
     elif [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
       if [[ -n "${VIRTUAL_ENV}" ]]; then
-        echo "(${purple}${CONDA_DEFAULT_ENV}+`basename $VIRTUAL_ENV`${normal})"
+        if [[ -n "VENV_SITE_CONDA" ]]; then
+          PYTHON_SITE="$(python -m site | grep -Po -m 1 'pcds-\d\.\d\.\d')"
+          export VENV_SITE_CONDA="${PYTHON_SITE}"
+        fi
+        echo "(${purple}${VENV_SITE_CONDA}+`basename $VIRTUAL_ENV`${normal})"
       else
         echo "(${purple}${CONDA_DEFAULT_ENV}${normal})"
       fi
