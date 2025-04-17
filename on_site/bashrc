@@ -357,19 +357,21 @@ pathpurge /reg/common/tools/bin
 #
 # * Do you want to automatically use the latest conda environment?
 #
+export PCDS_CONDA_VER=5.9.1
 [ -d /cds/group/pcds ] && source /cds/group/pcds/pyps/conda/pcds_conda
-#
+
+# unset virtual env settings
+unset VIRTUAL_ENV
 # * Do you want to set up a development area for Python code?
 #
 #   See the "Testing packages" sections for recommended workflows.
 #   https://confluence.slac.stanford.edu/display/PCDS/PCDS+Conda+Python+Environments
 
 # setup devrepos
-pythonpathmunge /cds/home/r/roberttk/devrepos/happi/
 for f in $HOME/devrepos/*; do
   if [ -d "$f" ]; then
     pythonpathmunge $f
   fi
 done
 
-
+source /cds/home/r/roberttk/.tokens

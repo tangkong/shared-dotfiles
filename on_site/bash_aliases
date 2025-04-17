@@ -73,12 +73,9 @@ hpy3() {
 }
 
 local_conda() {
-    if [ -f "/cds/home/r/roberttk/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/cds/home/r/roberttk/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/cds/home/r/roberttk/miniconda3/bin:$PATH"
-    fi
+  eval "$(/cds/group/pcds/pyps/conda/dev/roberttk/miniconda3/bin/conda shell.bash hook)"
 }
+
 # ****************
 # ** General    **
 # ****************
