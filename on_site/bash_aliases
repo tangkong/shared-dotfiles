@@ -76,6 +76,8 @@ local_conda() {
   eval "$(/cds/group/pcds/pyps/conda/dev/roberttk/miniconda3/bin/conda shell.bash hook)"
 }
 
+alias cddevconda='cd /cds/group/pcds/pyps/conda/dev/roberttk'
+
 # ****************
 # ** General    **
 # ****************
@@ -99,6 +101,7 @@ alias cagetstring='caget -S'
 # ** Git    **
 # ************
 alias gitlogtree='git log --graph --decorate --pretty=oneline --abbrev-commit --all --name-status'
+alias gitm='git commit -m'
 
 # ****************
 # ** What now?  **

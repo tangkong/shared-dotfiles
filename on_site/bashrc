@@ -357,7 +357,7 @@ pathpurge /reg/common/tools/bin
 #
 # * Do you want to automatically use the latest conda environment?
 #
-export PCDS_CONDA_VER=5.9.1
+export PCDS_CONDA_VER=6.1.0
 [ -d /cds/group/pcds ] && source /cds/group/pcds/pyps/conda/pcds_conda
 
 # unset virtual env settings
@@ -375,3 +375,7 @@ for f in $HOME/devrepos/*; do
 done
 
 source /cds/home/r/roberttk/.tokens
+
+export PATH="/cds/home/r/roberttk/.pixi/bin:$PATH"
+export PIXI_CACHE_DIR="/cds/group/pcds/pyps/conda/dev/roberttk/pixi/.cache/pixi_cache"
+export RATTLER_CACHE_DIR="/cds/group/pcds/pyps/conda/dev/roberttk/pixi/.cache/rattler_cache"
